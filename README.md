@@ -1,2 +1,2 @@
 # recipes-api
-Recipies-api
+Recipes-api
