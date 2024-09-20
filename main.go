@@ -74,6 +74,8 @@ func UpdateRecipeHandler(ctx *gin.Context) {
 		return
 	}
 
+	recipe.ID = recipes[index].ID
+	recipe.PublishedAt = recipes[index].PublishedAt
 	recipes[index] = recipe
 	ctx.JSON(http.StatusOK, recipe)
 }
