@@ -88,7 +88,7 @@ func DeleteRecipeHandler(ctx *gin.Context) {
 	for i := 0; i < len(recipes); i++ {
 		if recipes[i].ID == id {
 			index = i
-			return
+			break
 		}
 	}
 	if index == -1 {
