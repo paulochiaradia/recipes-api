@@ -1,3 +1,18 @@
+// Recipes API
+//
+// This is a sample recipes API. You can find out more aboutthe API at https://github.com/paulochiaradia/recipe-api
+//
+// Host: localhost:8080
+// BasePath: /
+// Version: 1.0.0
+// Contact: Paulo Chiaradia <paulo.chiaradia@unifesp.br>
+//
+// Consumes:
+// - application/json
+//
+// Produces:
+// - application/json
+// swagger:meta
 package main
 
 import (
