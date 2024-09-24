@@ -7,7 +7,7 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "This is a sample recipes API. You can find out more aboutthe API at https://github.com/paulochiaradia/recipe-api",
+    "description": "This is a sample recipes API. You can find out more about the API at https://github.com/paulochiaradia/recipe-api",
     "title": "Recipes API",
     "contact": {
       "name": "Paulo Chiaradia",

@@ -1,6 +1,6 @@
 // Recipes API
 //
-// This is a sample recipes API. You can find out more aboutthe API at https://github.com/paulochiaradia/recipe-api
+// This is a sample recipes API. You can find out more about the API at https://github.com/paulochiaradia/recipe-api
 //
 // Host: localhost:8080
 // BasePath: /
