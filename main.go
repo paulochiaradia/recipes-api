@@ -53,6 +53,17 @@ type Recipe struct {
 	PublishedAt  time.Time `json:"publishedAt"`
 }
 
+// swagger:operation POST /recipes recipes newRecipe
+// Create a new recipe
+// ---
+// produces:
+// - application/json
+// responses:
+//
+//	'200':
+//	    description: Successful operation
+//	'400':
+//	    description: Invalid input
 func NewRecipeHandler(ctx *gin.Context) {
 	var recipe Recipe
 	if err := ctx.ShouldBindJSON(&recipe); err != nil {
@@ -67,9 +78,37 @@ func NewRecipeHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, recipe)
 }
 
-func ListRecipesHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, recipes)
+// swagger:operation GET /recipes recipes listRecipes
+// Returns list of recipes
+// ---
+// produces:
+// - application/json
+// responses:
+// '200':
+// description: Successful operation
+
+func ListRecipesHandler(c *gin.Context) {
+	c.JSON(http.StatusOK, recipes)
 }
+
+// swagger:operation PUT /recipes/{id} recipes updateRecipe
+// Update an existing recipe
+// ---
+// parameters:
+// - name: id
+//   in: path
+//   description: ID of the recipe
+//   required: true
+//   type: string
+// produces:
+// - application/json
+// responses:
+//   '200':
+//     description: Successful operation
+//   '400':
+//     description: Invalid input
+//   '404':
+//     description: Invalid recipe ID
 
 func UpdateRecipeHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
@@ -98,6 +137,24 @@ func UpdateRecipeHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, recipe)
 }
 
+// swagger:operation DELETE /recipes/{id} recipes deleteRecipe
+// Delete an existing recipe
+// ---
+// produces:
+// - application/json
+// parameters:
+//   - name: id
+//     in: path
+//     description: ID of the recipe
+//     required: true
+//     type: string
+//
+// responses:
+//
+//	'200':
+//	    description: Successful operation
+//	'404':
+//	    description: Invalid recipe ID
 func DeleteRecipeHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	index := -1
@@ -117,6 +174,22 @@ func DeleteRecipeHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"message": "Recipe has been deleted"})
 }
 
+// swagger:operation GET /recipes/search recipes findRecipe
+// Search recipes based on tags
+// ---
+// produces:
+// - application/json
+// parameters:
+//   - name: tag
+//     in: query
+//     description: recipe tag
+//     required: true
+//     type: string
+//
+// responses:
+//
+//	'200':
+//	    description: Successful operation
 func SearchRecipeHandler(ctx *gin.Context) {
 	tag := ctx.Query("tag")
 	listOfRecipes := make([]Recipe, 0)
